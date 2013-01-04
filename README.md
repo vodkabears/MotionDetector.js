@@ -3,22 +3,22 @@
 ##Demos and examples
 
 [Colormotion](http://vodkabears.github.com/colormotion/)<br />
-[Sensitive particles](http://vodkabears.github.com/sensitive-particles/)
+[Sensitive particles(Refactored now)](http://vodkabears.github.com/sensitive-particles/)
 
 ##Using
 
 ###Creating an object
 ------------------
-To start working you need to create motion detector object:<br/>
+To start working you need to create a motion detector object:<br/>
 ```js
 var md = new MotionDetector(document.getElementById('video'), document.getElementById('output'));
 ```
-Here you are calling constructor with 2 parameters: HTML5VideoObject for input stream and HTML5 Canvas Object for drawing processed data.
+Here you are calling the constructor with 2 parameters: HTML5VideoObject for an input stream and HTML5 Canvas Object for drawing processed data.
 Second parameter is not required.
 
 ###Update
 ---------
-On each frame you need to update motion detector, which captures current picture of frame, compares with a last and draws motion data into output canvas element.<br/>
+On each frame you need to update a motion detector, which captures current picture of a frame, compares with a last and draws a motion data into output canvas element.<br/>
 ```js
 md.update();
 ```
@@ -26,7 +26,7 @@ By default picture of motions will be black and white. White pixel - motion was,
 
 ###setColor method
 ---------------------------
-You can easily add color to a motion picture with a help of setColor method, which takes 2 parameteres.
+You can easily add a color to a motion picture with a help of a setColor method, which takes 2 parameteres.
 First parameter is a color of pixel, where motion was.
 Second parameter is a color of pixel, where motion wasn't.<br/>
 Example:
@@ -53,7 +53,7 @@ If you want to set more than just a color, use onDifference and onSimilarity han
 
 ###onDifference handler
 -----------------------------
-Handle motion in each pixel.
+Handle a motion in each pixel.
 Motion detector calls this handler with two parameters: first - context of output canvas element, second - coordinates of the pixel.<br/>
 Example:
 ```js
@@ -70,7 +70,7 @@ md.onDifference = function(blendedCtx, e){
 
 ###onSimilarity handler
 -----------------------------
-Handle inaction in each pixel.
+Handle an inaction in each pixel.
 Motion detector calls this handler with two parameters: first - context of output canvas element, second - coordinates of the pixel.<br/>
 Example:
 ```js
@@ -84,8 +84,8 @@ md.onSimilarity = function(blendedCtx, e){
 
 ###onUpdate handler
 -----------------
-By default motion detector on each update clear canvas by calling clearRect method.
-You can set motion detector behavior on each update to your notice.<br/>
+By default motion detector on each update clears a canvas by calling a clearRect method.
+You can set a motion detector behavior on each update to your notice.<br/>
 Example:
 ```js
 md.onUpdate = function(ctx){
@@ -96,7 +96,7 @@ md.onUpdate = function(ctx){
 
 ###checkArea method
 ----------------
-Chech rectangle area for motion.
+Check a rectangle area for a motion.
 ```js
 md.checkArea(x, y, width, height [, step of checking]);
 ```
@@ -109,8 +109,8 @@ if(md.checkArea(0, 0, 50, 50)){
 
 ###getMotionAverage method
 ------------------------
-Return average of motion into rectangle area.<br/>
-Example(same as example of checkArea method):
+Return a motion average of a rectangle area.<br/>
+Example(same as example of a checkArea method):
 ```js
 if(md.getMotionAverage(0, 0, 50, 50) > 100){
 	alert('Motion!');
@@ -119,7 +119,7 @@ if(md.getMotionAverage(0, 0, 50, 50) > 100){
 
 ###getBlended method
 -----------------
-To get an image object of black and white motion data, call getBlended method.
+To get an image object of a non-colored motion data, call 'getBlended' method.
 ```js
 md.getBlended();
 ```
