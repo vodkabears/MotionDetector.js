@@ -5,6 +5,19 @@
 [Colormotion](http://vodkabears.github.com/colormotion/)<br />
 [Sensitive particles(Refactored now)](http://vodkabears.github.com/sensitive-particles/)
 
+##Important note!
+Before calling the update function in the first time, set some delay, it prevents NS_ERROR_NOT_AVAILABLE in Firefox.
+```js
+var animate = function(){
+	motionDetector.update();
+	requestAnimFrame(animate);
+};
+
+setTimeout(function () {
+	animate();
+}, 3000);
+```
+
 ##Using
 
 ###Creating an object
